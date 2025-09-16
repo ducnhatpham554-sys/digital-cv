@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital CV - Phạm Đức Nhật</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--secondary-color);
+        }
+        
+        .navbar-nav .nav-link {
+            color: white !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Main content */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto;
+        }
+        
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            top: 20px;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .timeline-desc {
+            color: var(--text-light);
+        }
+        
+        /* Skills */
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        /* Hobbies */
+        .hobby-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .hobby-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hobby-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Contact */
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="avatar mx-auto">
+                <img src="https://placehold.co/150x150/3498db/ffffff?text=Phạm+Đức+Nhật" alt="Chân dung Phạm Đức Nhật" class="d-block" />
+            </div>
+            <div class="header-content">
+                <h1>Phạm Đức Nhật</h1>
+                <p>Học sinh THPT Ban Mai</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#goals">Mục tiêu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Học vấn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Kinh nghiệm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Kỹ năng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hobbies">Sở thích</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">Giới thiệu bản thân</h2>
+            <div class="about-content text-center mx-auto" style="max-width: 800px;">
+                <p class="fs-5">Xin chào! Tôi là Phạm Đức Nhật, hiện đang là học sinh tại trường THPT Ban Mai. Tôi đam mê lập trình web và đang học tập để phát triển kỹ năng HTML, CSS và JavaScript.</p>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals">
+            <h2 class="section-title">Mục tiêu nghề nghiệp</h2>
+            <div class="goals-content text-center mx-auto" style="max-width: 800px;">
+                <p class="fs-5">Mục tiêu của tôi là phát triển kỹ năng lập trình web, trở thành một Front-end Developer chuyên nghiệp và đóng góp vào các dự án công nghệ sáng tạo trong tương lai.</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Học vấn</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - Hiện tại</div>
+                        <h3 class="timeline-title">THPT Ban Mai</h3>
+                        <p class="timeline-desc">Học sinh</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Kinh nghiệm làm việc</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Chưa có kinh nghiệm làm việc chính thức</div>
+                        <p class="timeline-desc">Tôi đã thực hành nhiều dự án cá nhân nhỏ sử dụng HTML, CSS và JavaScript để nâng cao kỹ năng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Kỹ năng</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h3 class="card-title text-center mb-4">Kỹ năng kỹ thuật</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>HTML</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>CSS</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>JavaScript</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies">
+            <h2 class="section-title">Sở thích</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Đọc sách</h3>
+                        <p>Thích đọc sách về công nghệ và phát triển bản thân</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Chơi game</h3>
+                        <p>Thích chơi các game chiến thuật và trí tuệ</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="fas fa-hiking"></i>
+                        </div>
+                        <h3>Du lịch</h3>
+                        <p>Yêu thích khám phá văn hóa và thiên nhiên</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Nghe nhạc</h3>
+                        <p>Thư giãn với nhiều thể loại nhạc khác nhau</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Liên hệ</h2>
+            <div class="row">
+                <div class="col-md-5 mb-4">
+                    <div class="contact-info">
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Địa chỉ</h3>
+                                <p>Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Số điện thoại</h3>
+                                <p>0961319543</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>ducnhatpham554@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div>
+                                <h3>Facebook</h3>
+                                <p><a href="https://www.facebook.com/profile.php?id=61576945485823" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Trang Facebook của tôi</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-7">
+                    <div class="contact-form card shadow-sm">
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Họ và tên</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Nhập họ tên của bạn" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class
