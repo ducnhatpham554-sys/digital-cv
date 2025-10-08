@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Phạm Đức Nhật</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+  <link rel="stylesheet" href="css/mobile.css" media="(max-width: 767px)">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+
+    /* --- HEADER --- */
+    header {
+      background-image: url('A_digital_photograph_captures_the_back_of_a_young_.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 200px 0 150px 0;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.5);
+    }
+    header h1, header p { position: relative; z-index: 2; }
+
+    /* --- NAVBAR NGANG BÊN DƯỚI HEADER --- */
+    .custom-nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 15px 0;
+      border-bottom: 2px solid #ddd;
+    }
+    .custom-nav a {
+      color: #333;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .custom-nav a:hover {
+      color: #0d6efd;
+    }
+    .custom-nav i {
+      margin-right: 6px;
+      color: #0d6efd;
+    }
+
+    /* --- SECTION TITLES --- */
+    .section-title {
+      font-weight: bold;
+      border-bottom: 2px solid #0d6efd;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* --- KỸ NĂNG --- */
+    .skill-content { display: none; transition: 0.3s; }
+    .skill:hover { background-color: #f8f9fa; }
+    .btn-view { display: none; }
+    .skill:hover .btn-view { display: inline-block; }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      background: #f8f9fa;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="gioithieu">
+    <h1>Phạm Đức Nhật</h1>
+    <p>Full Stack Developer</p>
+  </header>
+
+  <!-- ✅ NAVBAR DƯỚI ẢNH HEADER -->
+  <nav class="custom-nav">
+    <a href="#gioithieu"><i class="bi bi-person"></i>THÔNG TIN</a>
+    <a href="#kinhnghiem"><i class="bi bi-file-earmark-text"></i>LÝ LỊCH</a>
+    <a href="#chungchi"><i class="bi bi-envelope"></i>CHỨNG CHỈ</a>
+    <a href="#duan"><i class="bi bi-star"></i>DỰ ÁN</a>
+  </nav>
+
+  <!-- THÔNG TIN & MỤC TIÊU -->
+  <div class="container py-5">
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <h3 class="section-title">Mục tiêu nghề nghiệp</h3>
+        <p>Là sinh viên đã hoàn thành chứng chỉ Doanh Nghiệp của FUNiX. 
+        Mong muốn được làm việc với vị trí Fullstack Developer, vận dụng kiến thức đã học và không ngừng phát triển bản thân.</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="section-title">Thông tin cá nhân</h3>
+        <div id="personal-info" style="display:none;">
+          <ul class="list-unstyled">
+            <li><strong>Giới tính:</strong> Nam</li>
+            <li><strong>Ngày sinh:</strong> 19/05/2000</li>
+            <li><strong>Điện thoại:</strong> (+84) 912398xxx</li>
+            <li><strong>Email:</strong> phamducnhat@funix.edu.vn</li>
+            <li><strong>Địa chỉ:</strong> Hà Nội</li>
+            <li><strong>Website:</strong> https://abc.tech</li>
+          </ul>
+        </div>
+        <div id="email-input">
+          <label>Nhập email để xem thông tin cá nhân:</label>
+          <input type="email" id="email" class="form-control mb-2" placeholder="Nhập email của bạn...">
+          <button class="btn btn-primary" id="btn-submit">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KINH NGHIỆM - HOẠT ĐỘNG - HỌC VẤN -->
+    <div class="row mb-5" id="kinhnghiem">
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-briefcase"></i> Kinh nghiệm</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li><strong>Full Stack Developer</strong> - Công ty Y (05/2022 - nay)</li>
+              <li>Phát triển Website, quản lý Database (MySQL, NodeJS, Bootstrap...)</li>
+              <li>Thiết kế và bảo trì ứng dụng web.</li>
+              <li><strong>Web Designer</strong> - Công ty X (06/2021 - 04/2022)</li>
+              <li>Thiết kế UI/UX, sử dụng Figma, Canva, PTS.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-people"></i> Hoạt động</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li>FPT Edu Hackathon 2019 - Giải 3 bảng A</li>
+              <li>Câu lạc bộ Z - Trưởng ban chuyên môn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-mortarboard"></i> Học vấn</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li>FUNiX (06/2021 - 05/2022) - GPA: 9.0</li>
+              <li>ĐH FPT (08/2016 - 07/2019) - GPA: 3.2 / 4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KỸ NĂNG - NGÔN NGỮ - SỞ THÍCH -->
+    <div class="row mb-5" id="kynang">
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-tools"></i> Kỹ năng</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li>HTML/CSS: Fundamental</li>
+              <li>JavaScript: Intermediate</li>
+              <li>NodeJS: Intermediate</li>
+              <li>Bootstrap 5: Fundamental</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-translate"></i> Ngôn ngữ</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li>Tiếng Anh - IELTS 7.0</li>
+              <li>Tiếng Nhật - JLPT N4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded p-3 skill">
+          <h4><i class="bi bi-music-note-beamed"></i> Sở thích</h4>
+          <button class="btn btn-link btn-view">View More</button>
+          <div class="skill-content">
+            <ul>
+              <li>Âm nhạc</li>
+              <li>Chơi game</li>
+              <li>Du lịch</li>
+              <li>Nấu ăn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHỨNG CHỈ -->
+    <h3 class="section-title" id="chungchi">Chứng chỉ - Giải thưởng</h3>
+    <div class="row mb-5">
+      <div class="col-md-4"><img src="https://i.imgur.com/Mt1oUZY.png" class="img-fluid rounded mb-2"><p>Chứng chỉ Lập trình Web - FUNiX</p></div>
+      <div class="col-md-4"><img src="https://i.imgur.com/Mt1oUZY.png" class="img-fluid rounded mb-2"><p>Chứng chỉ Lập trình Javascript - FUNiX</p></div>
+      <div class="col-md-4"><img src="https://i.imgur.com/Mt1oUZY.png" class="img-fluid rounded mb-2"><p>Chứng chỉ Thiết kế Database - FUNiX</p></div>
+    </div>
+
+    <!-- DỰ ÁN -->
+    <h3 class="section-title" id="duan">Dự án</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="border rounded p-2">
+          <img src="https://i.imgur.com/M3oyV7M.png" class="img-fluid mb-2">
+          <h5>CV Cá nhân</h5>
+          <p>Trang web CV online cá nhân (HTML, CSS).</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="border rounded p-2">
+          <img src="https://i.imgur.com/dgAqYxz.png" class="img-fluid mb-2">
+          <h5>Trang quản lý thú cưng</h5>
+          <p>Ứng dụng quản lý thú cưng: thêm, sửa, xóa (HTML, CSS, JS).</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="border rounded p-2">
+          <img src="https://i.imgur.com/q9vZSTJ.png" class="img-fluid mb-2">
+          <h5>Trang xem tin tức</h5>
+          <p>Website xem tin tức từ nhiều nguồn (HTML, CSS, JS).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="lienhe">
+    © 2025 Phạm Đức Nhật |
+    <a href="https://www.facebook.com/profile.php?id=61576945485823" target="_blank" class="text-decoration-none text-primary">
+      <i class="bi bi-facebook"></i> Facebook
+    </a>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Xác nhận email
+    document.getElementById('btn-submit').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (email) {
+        document.getElementById('personal-info').style.display = 'block';
+        document.getElementById('email-input').style.display = 'none';
+      } else alert('Vui lòng nhập email hợp lệ!');
+    });
+
+    // View More / Less
+    document.querySelectorAll('.btn-view').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+          btn.textContent = 'View More';
+        } else {
+          content.style.display = 'block';
+          btn.textContent = 'View Less';
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
